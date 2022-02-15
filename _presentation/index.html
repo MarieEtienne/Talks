@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>The hidden part of Markovian stochastic processes for biology and ecology</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Marie-Pierre Etienne" />
+    <script src="libs/header-attrs-2.9/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra_fit-screen-0.2.6/fit-screen.js"></script>
+    <link rel="stylesheet" href="mpe_pres_HDR.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# The hidden part of Markovian stochastic processes for biology and ecology
+### Marie-Pierre Etienne
+### HDR Defense
+### October 2021
+
+---
+
+name: intro
+
+&lt;!-- F1D763 --&gt;
+&lt;!-- F7A913 --&gt;
+&lt;!-- C94326 --&gt;
+&lt;!-- 1F908E --&gt;
+&lt;!-- 33658A --&gt;
+
+
+
+
+
+
+
+&lt;!-- # Why do I enjoy research in statistics  ? --&gt;
+&lt;!-- -- --&gt;
+
+
+
+&lt;!-- &lt;div class= "addspace"&gt; --&gt;
+&lt;!-- &lt;li&gt; Working with researchers from different background,&lt;/li&gt; --&gt;
+&lt;!-- &lt;/div&gt; --&gt;
+
+&lt;!-- &lt;div class= "addspace"&gt; --&gt;
+&lt;!-- &lt;li&gt; Never left the school system, &lt;/li&gt; --&gt;
+&lt;!-- &lt;/div&gt; --&gt;
+
+
+&lt;!-- &lt;div class= "addspace"&gt; --&gt;
+&lt;!-- &lt;li&gt; Continnuously learning new concepts, methods, tools  &lt;/li&gt; --&gt;
+&lt;!-- &lt;/div&gt; --&gt;
+
+&lt;!-- &lt;div class= "addspace"&gt; --&gt;
+&lt;!-- &lt;li&gt; being confortable with my inside geek part.  &lt;/li&gt; --&gt;
+&lt;!-- &lt;/div&gt; --&gt;
+
+
+# How biology feeds statistics ?
+
+--
+&lt;figure&gt;
+  &lt;img src="overview1.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+
+---
+template: intro
+count: false
+
+&lt;figure&gt;
+  &lt;img src="overview2.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+---
+template: intro
+count: false
+
+&lt;figure&gt;
+  &lt;img src="overview3.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+---
+template: intro
+count: false
+
+&lt;figure&gt;
+  &lt;img src="overview3_app.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+
+---
+template: intro
+count: false
+
+&lt;figure&gt;
+  &lt;img src="overview4.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+
+---
+template: intro
+count: false
+
+&lt;figure&gt;
+  &lt;img src="overview4_app.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+
+---
+template: intro
+count: false
+
+&lt;figure&gt;
+  &lt;img src="overview5.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+
+---
+template: intro
+count: false
+
+&lt;figure&gt;
+  &lt;img src="overview5_app.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+
+
+---
+
+# A hierarchical spatial model to map the fish density
+&lt;img class="logopos_right" src="model.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="fish_model.png" style="height:7%"&gt;
+
+
+&lt;figure&gt;
+  &lt;img src="overview3_app.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+
+
+---
+# A hierarchical spatial model to map the fish density
+&lt;img class="logopos_right" src="model.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="fish_model.png" style="height:7%"&gt;
+
+## Marine ecology 
+
+* France commitment for 2022 : 30% of territorial waters classified as Marine Protected Area (MPA)
+* Localization also matters
+* Mapping the fish density to identify critical areas
+
+--
+
+### 2 data sources
+
+.pull-left[ 
+**Scientific data**: a yearly survey according to a standardized sampling plan.
+&lt;figure&gt;
+  &lt;img src="map_sci.png" alt="Orhago campaign and commercial data" style="width:60%" class = "centerimg" /&gt;
+  .legend[Common sole - ORHAGO survey (kg; 2018)]
+&lt;/figure&gt;
+]
+--
+
+.pull-right[
+**Commercial catch**: Catch geolocalized thanks to Vessel Monitoring System (VMS). Preferential sampling.
+&lt;figure&gt;
+  &lt;img src="map_com.png" alt="Orhago campaign and commercial data" style="width:60%" class = "centerimg" /&gt;
+  .legend[Common sole -  Otter trawls targeting demersal species(kg; 2018)]
+&lt;/figure&gt;
+]
+
+--
+
+.question[How to integrate commercial data to improve the estimation of spatial fish density?]
+
+
+---
+# A hierarchical spatial model to map the fish density
+&lt;img class="logopos_right" src="model.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="fish_model.png" style="height:7%"&gt;
+
+## A model should account for the specifities of catch data 
+
+.left-column[
+&lt;figure&gt;
+  &lt;img src="model_baptiste_1.png" alt="DAG for Baptist's model" style="width:100%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+
+---
+count: false
+
+# A hierarchical spatial model to map the fish density
+&lt;img class="logopos_right" src="model.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="fish_model.png" style="height:7%"&gt;
+
+## A model should account for the specifities of catch data
+
+.left-column[
+&lt;figure&gt;
+  &lt;img src="model_baptiste_2.png" alt="DAG for Baptist's model" style="width:100%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+.right-column[
+* Observation process : Zero inflated data ( *Sophie Ancelet's PhD* )
+   &lt;a name=cite-aitchison1955distribution&gt;&lt;/a&gt;&lt;a name=cite-ancelet2010modelling&gt;&lt;/a&gt;&lt;a name=cite-foster2013poisson&gt;&lt;/a&gt;([Aitchison, 1955](#bib-aitchison1955distribution); [Ancelet, Etienne, Benoît, et al., 2010](#bib-ancelet2010modelling); [Foster and Bravington, 2013](#bib-foster2013poisson)),]
+
+---
+count: false
+
+# A hierarchical spatial model to map the fish density
+&lt;img class="logopos_right" src="model.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="fish_model.png" style="height:7%"&gt;
+
+## A model should account for the specifities of catch data
+
+.left-column[
+&lt;figure&gt;
+  &lt;img src="model_baptiste_3.png" alt="DAG for Baptist's model" style="width:100%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+.right-column[
+* Observation process : Zero inflated data ( *Sophie Ancelet's PhD* )
+   ([Aitchison, 1955](#bib-aitchison1955distribution); [Ancelet, Etienne, Benoît, et al., 2010](#bib-ancelet2010modelling); [Foster and Bravington, 2013](#bib-foster2013poisson)),
+* Hidden layer : Spatially structured ( *Jean-Baptiste Lecomte's PhD* ) &lt;a name=cite-lecomte2013compound&gt;&lt;/a&gt;([Lecomte, Benoît, Ancelet, et al., 2013](#bib-lecomte2013compound)),
+]
+
+
+---
+count: false
+
+# A hierarchical spatial model to map the fish density
+&lt;img class="logopos_right" src="model.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="fish_model.png" style="height:7%"&gt;
+
+## A model should account for the specifities of catch data
+
+.left-column[
+&lt;figure&gt;
+  &lt;img src="model_baptiste_4.png" alt="DAG for Baptist's model" style="width:100%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+.right-column[
+* Observation process : Zero inflated data ( *Sophie Ancelet's PhD* )
+  ([Aitchison, 1955](#bib-aitchison1955distribution); [Ancelet, Etienne, Benoît, et al., 2010](#bib-ancelet2010modelling); [Foster and Bravington, 2013](#bib-foster2013poisson)),
+* Hidden layer : Spatially structured ( *Jean-Baptiste Lecomte's PhD* ) ([Lecomte, Benoît, Ancelet, et al., 2013](#bib-lecomte2013compound)),
+* Integrate Commercial data
+]
+
+---
+count: false
+
+# A hierarchical spatial model to map the fish density
+&lt;img class="logopos_right" src="model.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="fish_model.png" style="height:7%"&gt;
+
+## A model should account for the specifities of catch data
+
+.left-column[
+&lt;figure&gt;
+  &lt;img src="model_baptiste_full.png" alt="DAG for Baptist's model" style="width:100%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+.right-column[
+* Observation process : Zero inflated data ( *Sophie Ancelet's PhD* )
+  ([Aitchison, 1955](#bib-aitchison1955distribution); [Ancelet, Etienne, Benoît, et al., 2010](#bib-ancelet2010modelling); [Foster and Bravington, 2013](#bib-foster2013poisson)),
+* Hidden layer : Spatially structured ( *Jean-Baptiste Lecomte's PhD* ) ([Lecomte, Benoît, Ancelet, et al., 2013](#bib-lecomte2013compound)),
+* Integrate Commercial data where **sampling process** and **observations** are not independent (Commercial data) (*Baptiste Alglave's PhD*)
+]
+
+
+---
+name:test
+# A hierarchical spatial model to map the fish density
+&lt;img class="logopos_right" src="model.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="fish_model.png" style="height:7%"&gt;
+
+
+## Estimation of Hierarchical model
+
+* Integration over the hidden variables: a difficult task 
+  * Use of Monte Carlo simulation
+  * Approximation: Integrated Nested Laplace Approximation &lt;a name=cite-rue2009approximate&gt;&lt;/a&gt;([Rue, Martino, and Chopin, 2009](#bib-rue2009approximate)) combined with Gaussian Random Markov Field  for a sparse spatial model: 
+
+* Maximum likelihood estimation is also possible: the maximization  uses  Automatic differentiation  thanks to the TMB R package &lt;a name=cite-kristensen2016automatic&gt;&lt;/a&gt;([Kristensen, Nielsen, Berg, et al., 2016](#bib-kristensen2016automatic)), 
+  
+--
+
+## Results 
+.font80[&lt;a name=cite-alglave2021integrated&gt;&lt;/a&gt;[Alglave, Vermard, Etienne, et al. (2021)](#bib-alglave2021integrated) in review]
+
+* Ignoring PS provides biased estimates
+* Commercial data contain valuable information
+
+
+---
+template:test
+
+&lt;figure&gt;
+  &lt;img src="sole_spatial_results.png" alt="Sole's results" style="width:75%" class = "centerimg" /&gt;
+  .legend[Reconstruction of the spatial relative density for soles in 2018 in the Bay of Biscay during the Orhago scientific campaign]
+&lt;/figure&gt;
+
+
+
+---
+# A hierarchical spatial model to map the fish density
+&lt;img class="logopos_right" src="model.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="fish_model.png" style="height:7%"&gt;
+
+
+
+## Around this model  (as part of Baptiste's Alglave PhD project)
+
+* Adaptation for presence absence data (Florian Quemper Master's project) : a bit disappointing 
+* Spatio temporal modelling (in progress)
+* Account for aggregated data (initiated)
+
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="aggregation.png" alt="Sole's results" style="width:100%" class = "centerimg" /&gt;
+  .legend[Illustration of the reallocation process. Catch declaration = 50]
+&lt;/figure&gt;
+]
+
+.pull-right[
+Most commercial vessels report one catch per day and administrative unit
+  * Catch are then "reallocated"
+  * Change the commercial observation process
+  
+`$$Y^{C}_s = \sum_{l \in \mathcal{F}_i} Y^{C}_{sl}$$`
+]
+
+---
+# A statistical test to identify atypical genome region  
+&lt;img class="logopos_right" src="pvalue.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="dna.png" style="height:7%"&gt;
+
+&lt;figure&gt;
+  &lt;img src="overview4_app.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+---
+# A statistical test to identify atypical genome region  
+&lt;img class="logopos_right" src="pvalue.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="dna.png" style="height:7%"&gt;
+
+
+## PhD thesis: a scoring scheme to measure atypicity within a sequence 
+
+see &lt;a name=cite-Etienne03&gt;&lt;/a&gt;&lt;a name=cite-Etienne04&gt;&lt;/a&gt;[Daudin, Etienne, and Vallois (2003)](#bib-Etienne03); [Etienne and Vallois (2004)](#bib-Etienne04)
+
+--
+## Recurrent alteration in a cohort : CGH profiles
+
+
+.pull-left[
+
+  &lt;img src="recurrent_alt.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+]
+
+--
+
+
+.pull-right[
+
+For a cohort of size `\(N\)`, a profile of length `\(L\)`, 
+`$$\mathbb{P} ( \mbox{At least } m \mbox{ patients an alteration of length } l )$$`
+
+
+*  &lt;a name=cite-robin2009simultaneous&gt;&lt;/a&gt;[Robin and Stefanov (2009)](#bib-robin2009simultaneous), considers  a profile `\((X^{i}_k)_{k=1,\ldots,n}\)` as a 2 states discrete time Markov chain, the solution involved a Markov chain on a NL state space
+ 
+]
+
+
+---
+# A statistical test to identify atypical genome region  
+&lt;img class="logopos_right" src="pvalue.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="dna.png" style="height:7%"&gt;
+
+## Recurrent alteration in a cohort : CGH profiles
+
+.pull-lefts[
+* For large `\(L\)` and small `\(N\)`, &lt;a name=cite-robin2015detection&gt;&lt;/a&gt;[Robin and Stefanov (2015)](#bib-robin2015detection) considers  `\(X^{i}\)`  a 2 states continuous time Markov process
+&lt;figure&gt;
+  &lt;img src="ind_profile.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+ and define `\(Y^{(N)}_{s}\)` as the number of patients with alteration at position (time) `\(s\)`.
+
+`$$\mathbb{P}(\exists t, \forall 0 \leq s &lt; l, Y^{(N)}_{t+s} \geq m )$$`
+]
+
+--
+
+.pull-rightb[
+&lt;figure&gt;
+  &lt;img src="cum_profile1.png" alt="at the beginning is" style="width:100%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+
+---
+count: false
+# A statistical test to identify atypical genome region  
+&lt;img class="logopos_right" src="pvalue.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="dna.png" style="height:7%"&gt;
+
+## Recurrent alteration in a cohort : CGH profiles
+
+.pull-lefts[
+* For large `\(L\)` and small `\(N\)`, [Robin and Stefanov (2015)](#bib-robin2015detection) considers  `\(X^{i}\)`  a 2 states continuous time Markov process
+&lt;figure&gt;
+  &lt;img src="ind_profile.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+ and define `\(Y^{(N)}_{s}\)` as the number of patients with alteration at position (time) `\(s\)`.
+
+`$$\mathbb{P}(\exists t, \forall 0 \leq s &lt; l, Y^{(N)}_{t+s} \geq m )$$`
+]
+
+.pull-rightb[
+&lt;figure&gt;
+  &lt;img src="cum_profile2.png" alt="at the beginning is" style="width:100%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+
+
+---
+count: false
+# A statistical test to identify atypical genome region  
+&lt;img class="logopos_right" src="pvalue.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="dna.png" style="height:7%"&gt;
+
+
+
+## Recurrent alteration in a cohort : CGH profiles
+
+.pull-lefts[
+* For large `\(L\)` and small `\(N\)`, [Robin and Stefanov (2015)](#bib-robin2015detection) considers  `\(X^{i}\)`  a 2 states continuous time Markov process
+&lt;figure&gt;
+  &lt;img src="ind_profile.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+ and define `\(Y^{(N)}_{s}\)` as the number of patients with alteration at position (time) `\(s\)`.
+
+`$$\mathbb{P}(\exists t, \forall 0 \leq s &lt; l, Y^{(N)}_{t+s} \geq m )$$`
+]
+
+.pull-rightb[
+&lt;figure&gt;
+  &lt;img src="cum_profile3.png" alt="at the beginning is" style="width:100%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+&lt;br&gt;
+But the computational complexity drastically increases with `\(N\)`.
+
+.question[Could we identify some limit behavior when N increases ?]
+
+---
+count:false
+# A statistical test to identify atypical genome region  
+&lt;img class="logopos_right" src="pvalue.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="dna.png" style="height:7%"&gt;
+
+## Recurrent alteration in a cohort : CGH profiles
+
+Let `\(S^{N}= \sum_{i=1}^N \frac{X^{i}-E(X^i)}{\sqrt{N/4}}\)` a normalized version of `\(Y^{(N)}\)`. 
+
+ 
+ &lt;figure&gt;
+  &lt;img src="cum_profile4.png" alt="at the beginning is" style="width:80%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+
+`$$\mathbb{P}( \exists t, \forall 0 \leq s &lt; l, S^{(N)}_{t+s} \geq m^\prime )= P( E^{*,m^\prime}_{S^N} &gt; l ),$$`
+ with  `\(E^{*,m^\prime}_{S^N}\)` the length of the longest excursion of the cumulative  profile `\(S^{N}\)` above `\(m^\prime\)`
+ 
+ 
+
+--
+
+.addspace[$$ $$]
+
+
+.question[ `$$\mathbb{P}( E^{*,m^\prime}_{S^N} &gt; l )\underset{N\to\infty}{\longrightarrow} ??$$`]
+
+---
+# A statistical test to identify atypical genome region  
+&lt;img class="logopos_right" src="pvalue.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="dna.png" style="height:7%"&gt;
+
+## Recurrent alteration in a cohort : CGH profiles
+
+&lt;a name=cite-Decreusefond19a&gt;&lt;/a&gt;[Decreusefond, Etienne, Lang, et al. (2021)](#bib-Decreusefond19a) prove
+&lt;div class= "theorem"&gt;
+Let Z be a stationary standard Ornstein Uhlenbeck process, 
+
+`$$\left \vert  \mathbb{P}( E^{*,m}_{S^N} &gt; l)  - \mathbb{P}(E^{*,m}_Z &gt; l))\right\vert \leq \frac{C\ln{N}}{N^{1/8}}.$$`
+&lt;/div&gt;
+Key points of the proof:
+
+--
+* Convergence  of `\(S^{N}\)`  to `\(Z\)` : a Gaussian process with covariance function `\(c(s) = e^{-\tau s}.\)`
+
+--
+* Rate of convergence: combined a Brownian representation of the Ornstein Uhlenbeck process and a result from &lt;a name=cite-kubilius1994rate&gt;&lt;/a&gt;[Kubilius (1994)](#bib-kubilius1994rate) on the rate of convergence of the martingale increments to the Brownian motion.
+
+--
+* The quantity of interest is expressed through a continuous functional to preserve the convergence
+
+---
+# A statistical test to identify atypical genome region  
+&lt;img class="logopos_right" src="pvalue.png" style="width:6%"&gt;
+&lt;img class="logopos_left" src="dna.png" style="height:7%"&gt;
+
+
+## Perspective : Practical implementation 
+
+
+The distribution of the length of the OU excursions is unknown in general
+
+* Conditionally on the first hitting time `\(\sigma_m\)`,  express the change of measure from OU to a Wiener process with a quantity which only depends on  the signs and the lengths of  Brownian excursions.
+
+* Simulation of the signs and lengths of Brownian excursion using the size biased algorithm porposed by &lt;a name=cite-devroye2010exact&gt;&lt;/a&gt;[Devroye (2010)](#bib-devroye2010exact).
+
+
+---
+
+# Efficient estimation methods in movement ecology
+&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
+&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+
+
+--
+&lt;figure&gt;
+  &lt;img src="overview5_app.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+---
+
+# Efficient estimation methods in movement ecology
+&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
+&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+
+##  &lt;a name=cite-nathan2008movement&gt;&lt;/a&gt;([Nathan, Getz, Revilla, et al., 2008](#bib-nathan2008movement)) presents individual movement as the results of
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="nathan_fig.png" alt="at the beginning is" style="width:100%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+.legend[  Movement drivers by [Nathan, Getz, Revilla, et al. (2008)](#bib-nathan2008movement) ]
+]
+
+.pull-right[
+
+* Motion capacities
+* Internal state
+* Environment
+]
+  
+--
+
+.question[Movement informs on internal states and habitat preferences]
+
+---
+
+# Efficient estimation methods in movement ecology
+&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
+&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+
+
+## Movement data
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="path_1.png" alt="at the beginning is" style="width:100%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+---
+count: false
+
+# Efficient estimation methods in movement ecology
+&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
+&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+
+
+## Movement data
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="path_2.png" alt="at the beginning is" style="width:100%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+---
+count: false
+
+# Efficient estimation methods in movement ecology
+&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
+&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+
+
+## Movement data
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="path_3.png" alt="at the beginning is" style="width:100%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+--
+
+.pull-right[
+A continuous process sampled at some discrete potentially irregular times.
+
+Time series with values in `\(\mathbb{R}^2\)`.
+
+`$$\begin{array}\\ 
+ \mbox{Time} &amp; \mbox{Location} &amp; \mbox{Turning angle} &amp; \mbox{Speed}\\
+t_{0} &amp; (x_0, y_0) &amp; NA &amp; NA\\
+t_{1} &amp; (x_1, y_1) &amp; NA &amp; sp_1\\
+t_{2} &amp; (x_2, y_2) &amp; ang_2 &amp; sp_2\\
+\vdots &amp; \vdots&amp; \vdots&amp; \vdots \\
+t_{n} &amp; (x_n, y_n) &amp; ang_n &amp; sp_n\\\\
+\end{array}$$`
+]
+
+
+
+---
+
+# Efficient estimation methods in movement ecology
+&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
+&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+
+## Heterogeneity in movement pattern interpretated as different internal states
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="traj_seg_booby_black.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+.legend[Peruvian booby  data courtesy of Sophie Bertrand]
+&lt;/figure&gt;
+]
+
+
+---
+
+# Efficient estimation methods in movement ecology
+&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
+&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+
+## Heterogeneity in movement pattern interpretated as different internal states
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="traj_seg_booby.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+.legend[Peruvian booby  data courtesy of Sophie Bertrand]
+&lt;/figure&gt;
+]
+
+.pull-right[
+## Accounting for internal states
+
+Classically addressed with Hidden Markov Model 
+
+
+### Exploring the change point detection approach. &lt;a name=cite-lavielle2005using&gt;&lt;/a&gt;&lt;a name=cite-picard2007segmentation&gt;&lt;/a&gt;([Lavielle, 2005](#bib-lavielle2005using); [Picard, Robin, Lebarbier, et al., 2007](#bib-picard2007segmentation))
+]
+
+---
+
+# Efficient estimation methods in movement ecology
+&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
+&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+
+## Signal processing approach for movement ecology ([Picard, Robin, Lebarbier, et al., 2007](#bib-picard2007segmentation))
+
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="segmentation.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+.legend[Change point detection &lt;a name=cite-patin2019identifying&gt;&lt;/a&gt;([Patin, Etienne, Lebarbier, et al., 2019](#bib-patin2019identifying))]
+&lt;/figure&gt;
+
+Let `\(\boldsymbol{\tau}={\tau_1,...,\tau_{K-1}}\)` ( `\(\tau_0=-1\)` ) be a partition in K segments of `\(\{1,\ldots n\}\)`
+`$$\boldsymbol{X}_{i}\overset{i.i.d}{\sim}\mathcal{L}(\theta_k),\quad \forall i \in \{ \tau_{k-1}+1:\tau_k \}$$`
+The .care[Dynamic Programming algorithm] allows to explore efficiently all possible segmentation and to estimate `\(\boldsymbol{\hat{\tau}}\)`
+]
+
+
+--
+.pull-right[
+&lt;figure&gt;
+  &lt;img src="seg_classification.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+ .legend[Change point detection and classification ([Patin, Etienne, Lebarbier, et al., 2019](#bib-patin2019identifying))]
+&lt;/figure&gt;
+
+Let  `\(Z_k\)` stand for the class of segment `\(k,\)` `\(\forall i \in \{ \tau_{k-1}+1:\tau_k \}\)` 
+`$$Z_k \overset{i.i.d}{\sim} \mathcal{M}(\pi), \quad\boldsymbol{X}_{i}\vert Z_k=l \overset{i.i.d}{\sim}\mathcal{L}(\theta_l)$$`
+The Dynamic Programming coupled with EM algorithm allows to explore efficiently all possible segmentation and to estimate `\(\boldsymbol{\hat{\tau}}\)`
+]
+
+--
+
+In  ([Patin, Etienne, Lebarbier, et al., 2019](#bib-patin2019identifying)) : a direct extension to simultaneous segmentation for home range shift.
+
+
+---
+
+# Efficient estimation methods in movement ecology
+&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
+&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+
+## Signal processing approach for movement ecology ([Lavielle, 2005](#bib-lavielle2005using); [Picard, Robin, Lebarbier, et al., 2007](#bib-picard2007segmentation))
+
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="segmentation.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+ .legend[Change point detection ([Patin, Etienne, Lebarbier, et al., 2019](#bib-patin2019identifying))]
+&lt;/figure&gt;
+
+]
+
+
+.pull-right[
+&lt;figure&gt;
+  &lt;img src="seg_classification.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+  .legend[Change point detection and classification ([Patin, Etienne, Lebarbier, et al., 2019](#bib-patin2019identifying))]
+&lt;/figure&gt;
+]
+
+.question[Movement path is more than time series, importance of considering the space.]
+
+--
+
+.center[.care[Proposing ecologically meaningful movement models]]
+
+Pros and cons of  Discrete time versus continuous time movement models  discussed in &lt;a name=cite-mcclintock2014discrete&gt;&lt;/a&gt;[McClintock, Johnson, Hooten, et al. (2014)](#bib-mcclintock2014discrete) 
+
+---
+
+# Efficient estimation methods in movement ecology
+&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
+&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+
+## Diffusions as continuous time movement model 
+
+Let  `\((X_s)_{s\geq0}\in\mathbb{R}^2\)` denote the position at time `\(s\)`.
+
+.pull-left[
+* Brownian motion: a pure diffusion model
+`$$dX_s = dW_s, \quad X_0=x_0.$$`
+&lt;figure&gt;
+  &lt;img src="bm.png" alt="at the beginning is" style="width:60%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+--
+.pull-left[
+* Ornstein Uhlenbeck process: central place behavior
+`$$dX_s = -B (X_s- \mu) ds + \Sigma dW_s, \quad X_0=x_0.$$`
+
+&lt;figure&gt;
+  &lt;img src="ou.png" alt="at the beginning is" style="width:60%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+
+Popular models as  Brownian Motion and Ornstein Uhlenbeck have known transition densities 
+`\(q(x_t, x_{t+s})\)` which is not the case in general.
+
+---
+
+# Efficient estimation methods in movement ecology
+&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
+&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+
+## Diffusions as continuous time movement model 
+
+&lt;a name=cite-brillinger2002employing&gt;&lt;/a&gt;[Brillinger, Preisler, Ager, et al. (2002)](#bib-brillinger2002employing) propose a flexible framework
+`$$dX_s = -\nabla H(X_s) ds + \gamma dW_s, \quad X_0=x_0.$$`
+
+but no explicit transitions `\(q(x_t, x_{t+s})\)`
+
+--
+
+In &lt;a name=cite-Gloaguen2018stochastic&gt;&lt;/a&gt;[Gloaguen, Etienne, and Le Corff (2018a)](#bib-Gloaguen2018stochastic), as part  of *P. Gloaguen's PhD*, explore `\(H(X_s) = \sum_{k=1}^K \pi_k \varphi_k(X_s),\)`
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="map2.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+--
+
+.pull-right[
+* Euler approximation : biased estimates with low frequency data
+* &lt;a name=cite-ozaki1992bridge&gt;&lt;/a&gt;([Ozaki, 1992](#bib-ozaki1992bridge)) and &lt;a name=cite-kessler1997estimation&gt;&lt;/a&gt;[Kessler (1997)](#bib-kessler1997estimation) same results than
+* MCEM based on exact simulation &lt;a name=cite-beskos2006exact&gt;&lt;/a&gt;([Beskos, Papaspiliopoulos, Roberts, et al., 2006](#bib-beskos2006exact)) limits the flexibility of the SDE.
+]
+
+
+---
+
+# Efficient estimation methods in movement ecology
+&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
+&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+
+
+## Partially observed SDE 
+.pull-lefts[
+  &lt;img src="path_4.png" alt="at the beginning is" style="width:70%" class = "centerimg" /&gt;
+]
+
+--
+
+.pull-rights[
+Let  `\(Y_k\)` be the recorded position `\(s_k\)`, a noisy observation of the true position `\(X_k\)`:
+
+`$$dX_s = b(X_s) ds + \gamma dW_s, \quad X_0=x_0; \quad Y_k \overset{ind}{\sim} \mathcal{L} (X_k, \theta{o}).$$`
+]
+
+--
+
+### Additive smoothing distributions for the E Step
+
+`$$\sum_{k=0}^{n-1}\mathbb{E}( h(X_k, X_{k+1}) \vert Y_{0:n})$$`
+
+--
+* The particle-based, rapid incremental smoother (PaRIS)  algorithm &lt;a name=cite-olsson2017efficient&gt;&lt;/a&gt;([Olsson and Westerborn, 2017](#bib-olsson2017efficient)) provides  an online smoother using a rewriting of the Backward weight and an acceptation/rejection mechanism but depends on `\(q(\xi_{k-1}, \xi_{k})\)`
+
+* The generalized random PaRIS algorithm, in  &lt;a name=cite-gloaguen2018online&gt;&lt;/a&gt;([Gloaguen, Etienne, and Le Corff, 2018b](#bib-gloaguen2018online)), uses simple Euler approximation to propose the particles and uses a General Poisson Estimator to replace `\(q(\xi_{k-1}, \xi_{k})\)` with an unbiased estimator.
+
+--
+
+.care[Restrictive constraints on the drift and the diffusion term], are relaxed in &lt;a name=cite-martin2021backward&gt;&lt;/a&gt;([Martin, Etienne, Gloaguen, et al., 2021](#bib-martin2021backward)).
+
+
+---
+
+# Efficient estimation methods in movement ecology
+&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
+&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+
+## Flexible movement model
+
+&lt;figure&gt;
+  &lt;img src="DAG1.png" alt="at the beginning is" style="width:80%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+
+---
+
+# Efficient estimation methods in movement ecology
+&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
+&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+
+## Flexible movement model
+
+&lt;figure&gt;
+  &lt;img src="DAG2.png" alt="at the beginning is" style="width:80%" class = "centerimg" /&gt;
+   .legend[Flexible movement model which accounts for environment]
+&lt;/figure&gt;
+
+
+&lt;!-- --- --&gt;
+&lt;!-- template: movement --&gt;
+&lt;!-- ## Flexible movement model --&gt;
+
+&lt;!-- &lt;figure&gt; --&gt;
+&lt;!--   &lt;img src="DAG3.png" alt="at the beginning is" style="width:80%" class = "centerimg" /&gt; --&gt;
+&lt;!--    &lt;figcaption&gt; Flexible non homogeneous movement model&lt;/figcaption&gt; --&gt;
+&lt;!-- &lt;/figure&gt; --&gt;
+
+
+
+
+
+---
+
+# Efficient estimation methods in movement ecology
+&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
+&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+
+## Linking covariates and stationary distribution
+
+A classical choice of **resource selection function**, (i.e stationary distribution including covariates)
+$$\pi{\left(x \vert \beta\right)} \varpropto  \exp\left(\sum_{j=1}^J \beta_j c_j (x) \right). $$ 
+
+Diffusion, under regularity condition admits a stationary  distribution.  
+
+--
+
+Combining the ideas of &lt;a name=cite-michelot2019linking&gt;&lt;/a&gt;([Michelot, Blackwell, and Matthiopoulos, 2019](#bib-michelot2019linking)), and  ([Brillinger, Preisler, Ager, et al., 2002](#bib-brillinger2002employing)) lead to the Langevin diffusion as movement model, 
+$$
+	d X_t = \frac{\gamma^2}{2} \nabla \log \pi{\left(X_t\right)} \, d t + \gamma \,d W_t,\quad X_0 =x_0.
+$$
+--
+
+Using Euler approximation 
+
+`$$	X_{i+1} \vert \lbrace X_i = x_i \rbrace = 
+    	x_i + \frac{\gamma^2 \Delta_i}{2} \sum_{j=1}^J \beta_j \nabla c_j(x_i) + \sqrt{\Delta_i}  \varepsilon_{i+1},\quad 
+    	\varepsilon_{i+1} \overset{ind}{\sim} N \left( {0} , \gamma^2 \boldsymbol{I}_d \right),$$`
+
+leads to a simple linear model published in &lt;a name=cite-michelot2019langevin&gt;&lt;/a&gt;[Michelot, Etienne, Blackwell, et al. (2019)](#bib-michelot2019langevin).
+    	
+---
+# Perspectives
+
+### Some natural extension of the Langevin model useful in movement ecology
+
+* Coupling Hidden Markov model or change point detection model with a Langevin distribution:
+&lt;figure&gt;
+  &lt;img src="DAG4.png" alt="at the beginning is" style="width:60%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+* Introduction of an individual random effect,
+
+
+
+###  Handling categorical covariates
+&lt;a name=cite-lejay2018maximum&gt;&lt;/a&gt;[Lejay and Pigato (2018)](#bib-lejay2018maximum) define a threshold diffusion and proposes an ML estimation method. Explore the generalisation to `\(\mathbb{R}^2\)`. 
+
+### Longer term perspective
+* Collective movement: Cheaper GPS imply  massive deployment. Invest the area of collective movement analysis.
+* Combined sound monitoring
+
+
+---
+# A few words to finish
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="overview_final.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+--
+
+.pull-right[
+* Close interaction with biologist,
+  - it's helpful,
+  - provides exciting statistical problems,
+  - experiment a large diversity of approaches.
+* Hidden variables approach
+  - provide flexible models (spatial abundance, classification in time series, Partially observed SDE)
+  - popularized in Ecology in a Bayesian setting but frequentist approach is also possible
+* The Markovian property
+  - not so realistic,
+  - but a key component in both theoretical approach and computational aspects
+]
+---
+# Many thanks to 
+
+&lt;figure&gt;
+  &lt;img src="wordcloud_bis.png" alt="at the beginning is" style="width:65%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+
+
+
+---
+class: biblio
+# Bibliography
+&lt;img class="logopos_right" src="article.png" style="height:6%"&gt;
+
+&lt;a name=bib-aitchison1955distribution&gt;&lt;/a&gt;[Aitchison,
+J.](#cite-aitchison1955distribution) (1955). "On the distribution of a
+positive random variable having a discrete probability mass at the
+origin". In: _Journal of the american statistical association_ 50.271,
+pp. 901-908.
+
+&lt;a name=bib-alglave2021integrated&gt;&lt;/a&gt;[Alglave, B., Y. Vermard, M.
+Etienne, et al.](#cite-alglave2021integrated) (2021). "Integrated
+framework accounting for preferential sampling to infer fish spatial
+ditribution".
+
+&lt;a name=bib-ancelet2010modelling&gt;&lt;/a&gt;[Ancelet, S., M. Etienne, H.
+Benoît, et al.](#cite-ancelet2010modelling) (2010). "Modelling spatial
+zero-inflated continuous data with an exponentially compound Poisson
+process". In: _Environmental and Ecological Statistics_ 17.3, pp.
+347-376.
+
+&lt;a name=bib-beskos2006exact&gt;&lt;/a&gt;[Beskos, A., O. Papaspiliopoulos, G. O.
+Roberts, et al.](#cite-beskos2006exact) (2006). "Exact and
+computationally efficient likelihood-based estimation for discretely
+observed diffusion processes (with discussion)". In: _Journal of the
+Royal Statistical Society: Series B (Statistical Methodology)_ 68.3,
+pp. 333-382.
+
+&lt;a name=bib-brillinger2002employing&gt;&lt;/a&gt;[Brillinger, D. R., H. K.
+Preisler, A. A. Ager, et al.](#cite-brillinger2002employing) (2002).
+"Employing stochastic differential equations to model wildlife motion".
+In: _Bulletin of the Brazilian Mathematical Society_ 33.3, pp. 385-408.
+
+&lt;a name=bib-Etienne03&gt;&lt;/a&gt;[Daudin, J., M. Etienne, and P.
+Vallois](#cite-Etienne03) (2003). "Asymptotic behavior of the local
+score of independent and identically distributed random sequences". In:
+_Stochastic Processes and their Applications_ 107.1.
+
+&lt;a name=bib-Decreusefond19a&gt;&lt;/a&gt;[Decreusefond, L., M. Etienne, G. Lang,
+et al.](#cite-Decreusefond19a) (2021). "Convergence of the sum of pure
+jump Markov unitary processes to an Ornstein Uhlenbeck process".
+
+---
+class: biblio
+count: false
+# Bibliography
+&lt;img class="logopos_right" src="article.png" style="height:6%"&gt;
+
+&lt;a name=bib-devroye2010exact&gt;&lt;/a&gt;[Devroye, L.](#cite-devroye2010exact)
+(2010). "On exact simulation algorithms for some distributions related
+to Brownian motion and Brownian meanders". In: _Recent Developments in
+Applied Probability and Statistics_. Springer, pp. 1-35.
+
+&lt;a name=bib-Etienne04&gt;&lt;/a&gt;[Etienne, M. and P. Vallois](#cite-Etienne04)
+(2004). "Approximation of the distribution of the supremum of a centred
+random walk. Application to the local score". In: _Methodol. Comput.
+Appl. Probab._ 6.3, pp. 255-275.
+
+&lt;a name=bib-foster2013poisson&gt;&lt;/a&gt;[Foster, S. D. and M. V.
+Bravington](#cite-foster2013poisson) (2013). "A Poisson-Gamma model for
+analysis of ecological non-negative continuous data". In:
+_Environmental and ecological statistics_ 20.4, pp. 533-552.
+
+&lt;a name=bib-gloaguen2018online&gt;&lt;/a&gt;[Gloaguen, P., M. Etienne, and S. Le
+Corff](#cite-gloaguen2018online) (2018b). "Online sequential Monte
+Carlo smoother for partially observed diffusion processes". In:
+_EURASIP Journal on Advances in Signal Processing_ 2018.1, p. 9.
+
+&lt;a name=bib-Gloaguen2018stochastic&gt;&lt;/a&gt;[Gloaguen, P., M. Etienne, and
+S. Le Corff](#cite-Gloaguen2018stochastic) (2018a). "Stochastic
+differential equation based on a multimodal potential to model movement
+data in ecology". In: _Journal of the Royal Statistical Society: Series
+C (Applied Statistics)_ 67.3, pp. 599-619. DOI:
+[10.1111/rssc.12251](https://doi.org/10.1111%2Frssc.12251).
+
+&lt;a name=bib-kessler1997estimation&gt;&lt;/a&gt;[Kessler,
+M.](#cite-kessler1997estimation) (1997). "Estimation of an ergodic
+diffusion from discrete observations". In: _Scandinavian Journal of
+Statistics_ 24.2, pp. 211-229.
+
+&lt;a name=bib-kristensen2016automatic&gt;&lt;/a&gt;[Kristensen, K., A. Nielsen, C.
+W. Berg, et al.](#cite-kristensen2016automatic) (2016). "TMB: Automatic
+Differentiation and Laplace Approximation". In: _Journal of Statistical
+Software_ 70.5, pp. 1-21. DOI:
+[10.18637/jss.v070.i05](https://doi.org/10.18637%2Fjss.v070.i05).
+
+
+---
+class: biblio
+count: false
+# Bibliography
+&lt;img class="logopos_right" src="article.png" style="height:6%"&gt;
+
+&lt;a name=bib-kubilius1994rate&gt;&lt;/a&gt;[Kubilius, K.](#cite-kubilius1994rate)
+(1994). "Rate of convergence in the invariance principle for martingale
+difference arrays". In: _Lithuanian Mathematical Journal_ 34.4, pp.
+383-392.
+
+&lt;a name=bib-lavielle2005using&gt;&lt;/a&gt;[Lavielle,
+M.](#cite-lavielle2005using) (2005). "Using penalized contrasts for the
+change-point problem". In: _Signal processing_ 85.8, pp. 1501-1510.
+
+&lt;a name=bib-lecomte2013compound&gt;&lt;/a&gt;[Lecomte, J., H. P. Benoît, S.
+Ancelet, et al.](#cite-lecomte2013compound) (2013). "Compound P
+oisson-gamma vs. delta-gamma to handle zero-inflated continuous data
+under a variable sampling volume". In: _Methods in Ecology and
+Evolution_ 4.12, pp. 1159-1166.
+
+&lt;a name=bib-lejay2018maximum&gt;&lt;/a&gt;[Lejay, A. and P.
+Pigato](#cite-lejay2018maximum) (2018). "Maximum likelihood drift
+estimation for a threshold diffusion". In: _Scandinavian Journal of
+Statistics_.
+
+&lt;a name=bib-martin2021backward&gt;&lt;/a&gt;[Martin, A., M. Etienne, P.
+Gloaguen, et al.](#cite-martin2021backward) (2021). "Backward
+importance sampling for online estimation of state space models".
+working paper or preprint. URL:
+[https://hal.archives-ouvertes.fr/hal-02476102](https://hal.archives-ouvertes.fr/hal-02476102).
+
+&lt;a name=bib-mcclintock2014discrete&gt;&lt;/a&gt;[McClintock, B. T., D. S.
+Johnson, M. B. Hooten, et al.](#cite-mcclintock2014discrete) (2014).
+"When to be discrete: the importance of time formulation in
+understanding animal movement". In: _Movement ecology_ 2.1, p. 21.
+
+&lt;a name=bib-michelot2019linking&gt;&lt;/a&gt;[Michelot, T., P. G. Blackwell, and
+J. Matthiopoulos](#cite-michelot2019linking) (2019). "Linking resource
+selection and step selection models for habitat preferences in
+animals". In: _Ecology_ 100.1.
+
+---
+class: biblio
+count: false
+# Bibliography
+&lt;img class="logopos_right" src="article.png" style="height:6%"&gt;
+
+&lt;a name=bib-michelot2019langevin&gt;&lt;/a&gt;[Michelot, T., M. Etienne, P.
+Blackwell, et al.](#cite-michelot2019langevin) (2019). "The Langevin
+diffusion as a continuous-time model of animal movement and habitat
+selection". In: _Methods in Ecology and Evolution_.
+
+&lt;a name=bib-nathan2008movement&gt;&lt;/a&gt;[Nathan, R., W. M. Getz, E. Revilla,
+et al.](#cite-nathan2008movement) (2008). "A movement ecology paradigm
+for unifying organismal movement research". In: _Proceedings of the
+National Academy of Sciences_ 105.49, pp. 19052-19059.
+
+&lt;a name=bib-olsson2017efficient&gt;&lt;/a&gt;[Olsson, J. and J.
+Westerborn](#cite-olsson2017efficient) (2017). "Efficient
+particle-based online smoothing in general hidden Markov models: the
+PaRIS algorithm". In: _Bernoulli_ 23.3, pp. 1951-1996.
+
+&lt;a name=bib-ozaki1992bridge&gt;&lt;/a&gt;[Ozaki, T.](#cite-ozaki1992bridge)
+(1992). "A bridge between nonlinear time series models and nonlinear
+stochastic dynamical systems: a local linearization approach". In:
+_Statistica Sinica_, pp. 113-135.
+
+&lt;a name=bib-patin2019identifying&gt;&lt;/a&gt;[Patin, R., M. Etienne, E.
+Lebarbier, et al.](#cite-patin2019identifying) (2019). "Identifying
+stationary phases in multivariate time series for highlighting
+behavioural modes and home range settlements". In: _Journal of Animal
+Ecology_.
+
+&lt;a name=bib-picard2007segmentation&gt;&lt;/a&gt;[Picard, F., S. Robin, E.
+Lebarbier, et al.](#cite-picard2007segmentation) (2007). "A
+segmentation/clustering model for the analysis of array CGH data". In:
+_Biometrics_ 63.3, pp. 758-766.
+
+&lt;a name=bib-robin2009simultaneous&gt;&lt;/a&gt;[Robin, S. and V.
+Stefanov](#cite-robin2009simultaneous) (2009). "Simultaneous
+occurrences of runs in independent Markov chains". In: _Methodology and
+Computing in Applied Probability_ 11.2, pp. 267-275.
+
+---
+class: biblio
+count: false
+# Bibliography
+&lt;img class="logopos_right" src="article.png" style="height:6%"&gt;
+
+&lt;a name=bib-robin2015detection&gt;&lt;/a&gt;[Robin, S. and V. T.
+Stefanov](#cite-robin2015detection) (2015). "Detection of significant
+genomic alterations via simultaneous minimal sojourns at a state by
+independent continuous-time markov chains". In: _Methodology and
+Computing in Applied Probability_ 17.2, pp. 479-487.
+
+&lt;a name=bib-rue2009approximate&gt;&lt;/a&gt;[Rue, H., S. Martino, and N.
+Chopin](#cite-rue2009approximate) (2009). "Approximate Bayesian
+inference for latent Gaussian models by using integrated nested Laplace
+approximations". In: _Journal of the royal statistical society: Series
+b (statistical methodology)_ 71.2, pp. 319-392.
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="../courses_tools/resources/collapseoutput.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "16:10",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
