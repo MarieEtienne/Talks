@@ -1,8 +1,8 @@
 ---
 title: "Statistical methods for  movement ecology"
 author: Marie-Pierre Etienne
-institute: "HDR Defense"
-date: "October 2021"
+institute: "Ecodep Seminar"
+date: "February 2022"
 csl: "../resources/apa-no-doi-no-issue.csl"
 output:
    xaringan::moon_reader:
@@ -69,9 +69,7 @@ xaringanExtra::use_fit_screen()
 
 
 
----
-
-# Efficient estimation methods in movement ecology
+# Movement ecology paradigm
 <img class="logopos_right" src="compute.png" style="height:6%">
 <img class="logopos_left" src="paw.png" style="height:7%">
 
@@ -96,13 +94,12 @@ xaringanExtra::use_fit_screen()
 .question[Movement informs on internal states and habitat preferences]
 
 ---
-
-# Efficient estimation methods in movement ecology
-<img class="logopos_right" src="compute.png" style="height:6%">
-<img class="logopos_left" src="paw.png" style="height:7%">
+name: move2data
+# From Movement to Movement data
 
 
-## Movement data
+--
+
 
 .pull-left[
 <figure>
@@ -111,14 +108,9 @@ xaringanExtra::use_fit_screen()
 ]
 
 ---
+template: move2data
 count: false
 
-# Efficient estimation methods in movement ecology
-<img class="logopos_right" src="compute.png" style="height:6%">
-<img class="logopos_left" src="paw.png" style="height:7%">
-
-
-## Movement data
 
 .pull-left[
 <figure>
@@ -126,19 +118,26 @@ count: false
 </figure>
 ]
 
+
 ---
+template: move2data
 count: false
 
-# Efficient estimation methods in movement ecology
-<img class="logopos_right" src="compute.png" style="height:6%">
-<img class="logopos_left" src="paw.png" style="height:7%">
-
-
-## Movement data
 
 .pull-left[
 <figure>
   <img src="path_3.png" alt="at the beginning is" style="width:100%" class = "centerimg" />
+</figure>
+]
+
+---
+template: move2data
+count: false
+
+
+.pull-left[
+<figure>
+  <img src="path_p3.png" alt="at the beginning is" style="width:100%" class = "centerimg" />
 </figure>
 ]
 
@@ -161,13 +160,30 @@ t_{n} & (x_n, y_n) & ang_n & sp_n\\\\
 
 
 
+
+
+---
+name: data2model
+# From movement data to movement model
+
+--
+
+Often analysed using discrete time model  `r Citep(myBib, "mcclintock2014discrete")`
+
+--
+
+.pull-left[
+<figure>
+  <img src="move_decomposition.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
+.legend[Movement decomposition]
+</figure>
+]
+
+
+
 ---
 
-# Efficient estimation methods in movement ecology
-<img class="logopos_right" src="compute.png" style="height:6%">
-<img class="logopos_left" src="paw.png" style="height:7%">
-
-## Heterogeneity in movement pattern interpretated as different internal states
+# Heterogeneity in movement pattern interpretated as different internal states
 
 .pull-left[
 <figure>
@@ -176,14 +192,9 @@ t_{n} & (x_n, y_n) & ang_n & sp_n\\\\
 </figure>
 ]
 
-
 ---
 
-# Efficient estimation methods in movement ecology
-<img class="logopos_right" src="compute.png" style="height:6%">
-<img class="logopos_left" src="paw.png" style="height:7%">
-
-## Heterogeneity in movement pattern interpretated as different internal states
+# Heterogeneity in movement pattern interpretated as different internal states
 
 .pull-left[
 <figure>
@@ -203,11 +214,7 @@ Classically addressed with Hidden Markov Model
 
 ---
 
-# Efficient estimation methods in movement ecology
-<img class="logopos_right" src="compute.png" style="height:6%">
-<img class="logopos_left" src="paw.png" style="height:7%">
-
-## Signal processing approach for movement ecology `r Citep(myBib, "picard2007segmentation")`
+# Signal processing approach for movement ecology `r Citep(myBib, "picard2007segmentation")`
 
 
 .pull-left[
@@ -240,12 +247,7 @@ In  `r Citep(myBib, "patin2019identifying")` : a direct extension to simultaneou
 
 
 ---
-
-# Efficient estimation methods in movement ecology
-<img class="logopos_right" src="compute.png" style="height:6%">
-<img class="logopos_left" src="paw.png" style="height:7%">
-
-## Signal processing approach for movement ecology `r Citep(myBib, c("lavielle2005using", "picard2007segmentation"))`
+# Signal processing approach for movement ecology `r Citep(myBib, c("lavielle2005using", "picard2007segmentation"))`
 
 
 .pull-left[
@@ -274,11 +276,7 @@ Pros and cons of  Discrete time versus continuous time movement models  discusse
 
 ---
 
-# Efficient estimation methods in movement ecology
-<img class="logopos_right" src="compute.png" style="height:6%">
-<img class="logopos_left" src="paw.png" style="height:7%">
-
-## Diffusions as continuous time movement model 
+# Diffusions as continuous time movement model 
 
 Let  $(X_s)_{s\geq0}\in\mathbb{R}^2$ denote the position at time $s$.
 
@@ -465,15 +463,7 @@ leads to a simple linear model published in `r Citet(myBib,"michelot2019langevin
 ---
 # A few words to finish
 
-.pull-left[
-<figure>
-  <img src="overview_final.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
-</figure>
-]
 
---
-
-.pull-right[
 * Close interaction with biologist,
   - it's helpful,
   - provides exciting statistical problems,
@@ -484,13 +474,7 @@ leads to a simple linear model published in `r Citet(myBib,"michelot2019langevin
 * The Markovian property
   - not so realistic,
   - but a key component in both theoretical approach and computational aspects
-]
----
-# Many thanks to 
 
-<figure>
-  <img src="wordcloud_bis.png" alt="at the beginning is" style="width:65%" class = "centerimg" />
-</figure>
 
 
 
