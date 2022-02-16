@@ -15,8 +15,8 @@ class: center, middle, inverse, title-slide
 
 # Statistical methods for movement ecology
 ### Marie-Pierre Etienne
-### HDR Defense
-### October 2021
+### Ecodep Seminar
+### February 2022
 
 ---
 
@@ -58,9 +58,7 @@ name: intro
 
 
 
----
-
-# Efficient estimation methods in movement ecology
+# Movement ecology paradigm
 &lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
 &lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
 
@@ -85,13 +83,12 @@ name: intro
 .question[Movement informs on internal states and habitat preferences]
 
 ---
-
-# Efficient estimation methods in movement ecology
-&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
-&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
+name: move2data
+# From Movement to Movement data
 
 
-## Movement data
+--
+
 
 .pull-left[
 &lt;figure&gt;
@@ -100,14 +97,9 @@ name: intro
 ]
 
 ---
+template: move2data
 count: false
 
-# Efficient estimation methods in movement ecology
-&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
-&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
-
-
-## Movement data
 
 .pull-left[
 &lt;figure&gt;
@@ -115,19 +107,26 @@ count: false
 &lt;/figure&gt;
 ]
 
+
 ---
+template: move2data
 count: false
 
-# Efficient estimation methods in movement ecology
-&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
-&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
-
-
-## Movement data
 
 .pull-left[
 &lt;figure&gt;
   &lt;img src="path_3.png" alt="at the beginning is" style="width:100%" class = "centerimg" /&gt;
+&lt;/figure&gt;
+]
+
+---
+template: move2data
+count: false
+
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="path_p3.png" alt="at the beginning is" style="width:100%" class = "centerimg" /&gt;
 &lt;/figure&gt;
 ]
 
@@ -150,13 +149,30 @@ t_{n} &amp; (x_n, y_n) &amp; ang_n &amp; sp_n\\\\
 
 
 
+
+
+---
+name: data2model
+# From movement data to movement model
+
+--
+
+Often analysed using discrete time model  &lt;a name=cite-mcclintock2014discrete&gt;&lt;/a&gt;([McClintock, Johnson, Hooten, et al., 2014](#bib-mcclintock2014discrete))
+
+--
+
+.pull-left[
+&lt;figure&gt;
+  &lt;img src="move_decomposition.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
+.legend[Movement decomposition]
+&lt;/figure&gt;
+]
+
+
+
 ---
 
-# Efficient estimation methods in movement ecology
-&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
-&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
-
-## Heterogeneity in movement pattern interpretated as different internal states
+# Heterogeneity in movement pattern interpretated as different internal states
 
 .pull-left[
 &lt;figure&gt;
@@ -165,14 +181,9 @@ t_{n} &amp; (x_n, y_n) &amp; ang_n &amp; sp_n\\\\
 &lt;/figure&gt;
 ]
 
-
 ---
 
-# Efficient estimation methods in movement ecology
-&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
-&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
-
-## Heterogeneity in movement pattern interpretated as different internal states
+# Heterogeneity in movement pattern interpretated as different internal states
 
 .pull-left[
 &lt;figure&gt;
@@ -192,11 +203,7 @@ Classically addressed with Hidden Markov Model
 
 ---
 
-# Efficient estimation methods in movement ecology
-&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
-&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
-
-## Signal processing approach for movement ecology ([Picard, Robin, Lebarbier, et al., 2007](#bib-picard2007segmentation))
+# Signal processing approach for movement ecology ([Picard, Robin, Lebarbier, et al., 2007](#bib-picard2007segmentation))
 
 
 .pull-left[
@@ -229,12 +236,7 @@ In  ([Patin, Etienne, Lebarbier, et al., 2019](#bib-patin2019identifying)) : a d
 
 
 ---
-
-# Efficient estimation methods in movement ecology
-&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
-&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
-
-## Signal processing approach for movement ecology ([Lavielle, 2005](#bib-lavielle2005using); [Picard, Robin, Lebarbier, et al., 2007](#bib-picard2007segmentation))
+# Signal processing approach for movement ecology ([Lavielle, 2005](#bib-lavielle2005using); [Picard, Robin, Lebarbier, et al., 2007](#bib-picard2007segmentation))
 
 
 .pull-left[
@@ -259,15 +261,11 @@ In  ([Patin, Etienne, Lebarbier, et al., 2019](#bib-patin2019identifying)) : a d
 
 .center[.care[Proposing ecologically meaningful movement models]]
 
-Pros and cons of  Discrete time versus continuous time movement models  discussed in &lt;a name=cite-mcclintock2014discrete&gt;&lt;/a&gt;[McClintock, Johnson, Hooten, et al. (2014)](#bib-mcclintock2014discrete) 
+Pros and cons of  Discrete time versus continuous time movement models  discussed in [McClintock, Johnson, Hooten, et al. (2014)](#bib-mcclintock2014discrete) 
 
 ---
 
-# Efficient estimation methods in movement ecology
-&lt;img class="logopos_right" src="compute.png" style="height:6%"&gt;
-&lt;img class="logopos_left" src="paw.png" style="height:7%"&gt;
-
-## Diffusions as continuous time movement model 
+# Diffusions as continuous time movement model 
 
 Let  `\((X_s)_{s\geq0}\in\mathbb{R}^2\)` denote the position at time `\(s\)`.
 
@@ -454,15 +452,7 @@ leads to a simple linear model published in &lt;a name=cite-michelot2019langevin
 ---
 # A few words to finish
 
-.pull-left[
-&lt;figure&gt;
-  &lt;img src="overview_final.png" alt="at the beginning is" style="width:90%" class = "centerimg" /&gt;
-&lt;/figure&gt;
-]
 
---
-
-.pull-right[
 * Close interaction with biologist,
   - it's helpful,
   - provides exciting statistical problems,
@@ -473,13 +463,7 @@ leads to a simple linear model published in &lt;a name=cite-michelot2019langevin
 * The Markovian property
   - not so realistic,
   - but a key component in both theoretical approach and computational aspects
-]
----
-# Many thanks to 
 
-&lt;figure&gt;
-  &lt;img src="wordcloud_bis.png" alt="at the beginning is" style="width:65%" class = "centerimg" /&gt;
-&lt;/figure&gt;
 
 
 
