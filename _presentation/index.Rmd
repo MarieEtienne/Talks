@@ -201,7 +201,7 @@ t_{n} & (x_n, y_n) & ang_n & sp_n\\\\
 ## Habitat preference 
 
 <figure>
-  <img src="SSL_covs.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
+  <img src="SSL_covs.png" alt="at the beginning is" style="width:100%" class = "centerimg" />
 .legend[Sea Lions habitat description]
 </figure>
 ]
@@ -218,12 +218,10 @@ Often analysed using discrete time model  `r Citep(myBib, "mcclintock2014discret
 
 --
 
-.pull-left[
 <figure>
   <img src="move_decomposition.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
 .legend[Movement decomposition]
 </figure>
-]
 
 
 
@@ -321,7 +319,7 @@ Pros and cons of  Discrete time versus continuous time movement models  discusse
 
 ---
 
-# Diffusions as continuous time movement model 
+# Potential based Diffusions as continuous time movement model 
 
 Let  $(X_s)_{s\geq0}\in\mathbb{R}^2$ denote the position at time $s$.
 
@@ -349,11 +347,8 @@ $q(x_t, x_{t+s})$ which is not the case in general.
 
 ---
 
-# Efficient estimation methods in movement ecology
-<img class="logopos_right" src="compute.png" style="height:6%">
-<img class="logopos_left" src="paw.png" style="height:7%">
 
-## Diffusions as continuous time movement model 
+# Potential based Diffusions as continuous time movement model 
 
 `r Citet(myBib,'brillinger2002employing')` propose a flexible framework
 $$dX_s = -\nabla H(X_s) ds + \gamma dW_s, \quad X_0=x_0.$$
@@ -381,7 +376,7 @@ In `r Citet(myBib,'Gloaguen2018stochastic')`, as part  of *P. Gloaguen's PhD*, e
 
 ---
 
-# Efficient estimation methods in movement ecology
+# Potential based Diffusions as continuous time movement model 
 <img class="logopos_right" src="compute.png" style="height:6%">
 <img class="logopos_left" src="paw.png" style="height:7%">
 
@@ -417,11 +412,9 @@ $$\sum_{k=0}^{n-1}\mathbb{E}( h(X_k, X_{k+1}) \vert Y_{0:n})$$
 
 ---
 
-# Efficient estimation methods in movement ecology
-<img class="logopos_right" src="compute.png" style="height:6%">
-<img class="logopos_left" src="paw.png" style="height:7%">
+# Potential based Diffusions as continuous time movement model 
 
-## Flexible movement model
+## Flexible movement model for habitat preference
 
 <figure>
   <img src="DAG1.png" alt="at the beginning is" style="width:80%" class = "centerimg" />
@@ -430,11 +423,10 @@ $$\sum_{k=0}^{n-1}\mathbb{E}( h(X_k, X_{k+1}) \vert Y_{0:n})$$
 
 ---
 
-# Efficient estimation methods in movement ecology
-<img class="logopos_right" src="compute.png" style="height:6%">
-<img class="logopos_left" src="paw.png" style="height:7%">
+# Potential based Diffusions as continuous time movement model 
 
-## Flexible movement model
+## Flexible movement model for habitat preference
+
 
 <figure>
   <img src="DAG2.png" alt="at the beginning is" style="width:80%" class = "centerimg" />
@@ -457,11 +449,9 @@ $$\sum_{k=0}^{n-1}\mathbb{E}( h(X_k, X_{k+1}) \vert Y_{0:n})$$
 
 ---
 
-# Efficient estimation methods in movement ecology
-<img class="logopos_right" src="compute.png" style="height:6%">
-<img class="logopos_left" src="paw.png" style="height:7%">
+# Potential based Diffusions as continuous time movement model 
 
-## Linking covariates and stationary distribution
+## Flexible movement model for habitat preference
 
 A classical choice of **resource selection function**, (i.e stationary distribution including covariates)
 $$\pi{\left(x \vert \beta\right)} \varpropto  \exp\left(\sum_{j=1}^J \beta_j c_j (x) \right). $$ 
@@ -484,6 +474,34 @@ $$	X_{i+1} \vert \lbrace X_i = x_i \rbrace =
 
 leads to a simple linear model published in `r Citet(myBib,"michelot2019langevin")`.
     	
+    	
+    	
+---
+---
+
+# Potential based Diffusions as continuous time movement model 
+
+## Flexible movement model for habitat preference
+
+
+.pull-left[
+<figure>
+  <img src="SSL_covs.png" alt="at the beginning is" style="width:100%" class = "centerimg" />
+.legend[Sea Lions habitat description]
+</figure>
+]
+
+--
+
+.pull-right[
+
+<figure>
+  <img src="SSL_logUD.png" alt="at the beginning is" style="width:100%" class = "centerimg" />
+.legend[Sea Lions habitat description]
+</figure>
+]
+
+
 ---
 # Perspectives
 
