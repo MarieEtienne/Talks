@@ -207,7 +207,7 @@ t_{n} & (x_n, y_n) & ang_n & sp_n\\\\
 ]
 
 
-]
+
 ---
 name: data2model
 # From Movement Data to Movement Model
@@ -230,7 +230,9 @@ Often analysed using discrete time model  `r Citep(myBib, "mcclintock2014discret
 
 ---
 
-# Heterogeneity in movement pattern interpretated as different internal states
+# Segmentation 
+
+##  Heterogeneity in movement pattern interpretated as different internal states
 
 .pull-left[
 <figure>
@@ -250,7 +252,10 @@ Classically addressed with Hidden Markov Model
 
 ---
 
-# Signal processing approach for movement ecology `r Citep(myBib, "picard2007segmentation")`
+# Segmentation 
+
+
+## Signal processing approach for movement ecology `r Citep(myBib, "picard2007segmentation")`
 
 
 .pull-left[
@@ -283,7 +288,11 @@ In  `r Citep(myBib, "patin2019identifying")` : a direct extension to simultaneou
 
 
 ---
-# Signal processing approach for movement ecology `r Citep(myBib, c("lavielle2005using", "picard2007segmentation"))`
+
+# Segmentation 
+
+
+## Signal processing approach for movement ecology `r Citep(myBib, c("lavielle2005using", "picard2007segmentation"))`
 
 
 .pull-left[
