@@ -146,7 +146,7 @@ count: false
 .pull-right[
 A continuous process sampled at some discrete potentially irregular times.
 
-Time series with values in $\mathbb{R}^2$.
+Time series with values in $\mathbb{R}^2$ (on earth ...).
 
 $$\begin{array}\\ 
  \mbox{Time} & \mbox{Location} & \mbox{Turning angle} & \mbox{Speed}\\
@@ -161,10 +161,56 @@ t_{n} & (x_n, y_n) & ang_n & sp_n\\\\
 
 
 
+---
+# Ecological questions 
+
+  
+
+.pull-left[
+
+## Behavioural ecology
+
+<figure>
+  <img src="traj_seg_booby_black.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
+.legend[Peruvian booby  data courtesy of Sophie Bertrand]
+</figure>
+]
+
+
+
 
 ---
+# Ecological questions 
+
+
+
+.pull-left[
+
+## Behavioural ecology  
+
+<figure>
+  <img src="traj_seg_booby.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
+.legend[Peruvian booby  data courtesy of Sophie Bertrand]
+</figure>
+]
+
+--
+
+.pull-right[
+
+## Habitat preference 
+
+<figure>
+  <img src="SSL_covs" alt="at the beginning is" style="width:90%" class = "centerimg" />
+.legend[Sea Lions habitat description]
+</figure>
+]
+
+
+]
+---
 name: data2model
-# From movement data to movement model
+# From Movement Data to Movement Model
 
 --
 
@@ -181,16 +227,6 @@ Often analysed using discrete time model  `r Citep(myBib, "mcclintock2014discret
 
 
 
----
-
-# Heterogeneity in movement pattern interpretated as different internal states
-
-.pull-left[
-<figure>
-  <img src="traj_seg_booby_black.png" alt="at the beginning is" style="width:90%" class = "centerimg" />
-.legend[Peruvian booby  data courtesy of Sophie Bertrand]
-</figure>
-]
 
 ---
 
@@ -505,25 +541,6 @@ count: false
 <img class="logopos_right" src="article.png" style="height:6%">
 
 ```{r refs_3, echo=FALSE, results="asis", eval = TRUE, cache = FALSE}
-PrintBibliography(myBib, start = 15, end = 21)
+PrintBibliography(myBib, start = 15, end = 16)
 ```
 
----
-class: biblio
-count: false
-# Bibliography
-<img class="logopos_right" src="article.png" style="height:6%">
-
-```{r refs_4, echo=FALSE, results="asis", eval = TRUE, cache = FALSE}
-PrintBibliography(myBib, start = 22, end = 28)
-```
-
----
-class: biblio
-count: false
-# Bibliography
-<img class="logopos_right" src="article.png" style="height:6%">
-
-```{r refs_5, echo=FALSE, results="asis", eval = TRUE, cache = FALSE}
-PrintBibliography(myBib, start = 29, end = 30)
-```
