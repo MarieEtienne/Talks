@@ -1,8 +1,7 @@
----
 title: "Statistical methods for  movement ecology"
 author: Marie-Pierre Etienne
-institute: "Ecodep Seminar"
-date: "February 2022"
+institute: ""
+date: "2022"
 csl: "../resources/apa-no-doi-no-issue.csl"
 output:
    xaringan::moon_reader:
